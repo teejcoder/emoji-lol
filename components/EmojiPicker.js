@@ -1,19 +1,18 @@
-import { MaterialIcons } from '@expo/vector-icons'
-import React from 'react'
-import { Pressable } from 'react-native'
-import { Modal, Text, View } from 'react-native-web'
+import { Modal, Text, View, StyleSheet, Pressable } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const EmojiPicker = ({ isVisible, children, onClose }) => {
 
   return (
-    <Modal>
-        <View style={styles.modalContainer}>
+    <Modal animationType='slide' transparent={true} visible={isVisible}>
+        <View style={styles.modalContent}>
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>Choose a sticker</Text>
                 <Pressable onPress={onClose}>
                     <MaterialIcons name='close' color='#fff' size={22}/>
                 </Pressable>
             </View>
+            {children}
         </View>
     </Modal>
   )
